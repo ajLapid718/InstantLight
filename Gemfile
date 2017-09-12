@@ -9,6 +9,7 @@ end
 gem 'haml'
 gem 'coffee-script-source', '~> 1.8.0'
 gem 'paperclip'
+gem 'simple_form'
 #Gem Additions Above
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
