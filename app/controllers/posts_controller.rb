@@ -29,7 +29,7 @@ class PostsController < ApplicationController
 
   def update
     if @post.update(post_params)
-      flash[:success] = "Post updated."
+      flash[:success] = "Post successfully updated."
       redirect_to @post
     else
       flash.now[:alert] = "Update failed. Please check the form."
@@ -38,8 +38,11 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    @post.destroy
-    redirect_to posts_path
+    if @post.destroy
+      flash[:success] = "Post successfully deleted."
+      redirect_to posts_path
+    else
+      flash.now[:alert] = "Post was not deleted; something went wrong."
   end
 
   private
