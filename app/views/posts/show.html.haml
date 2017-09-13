@@ -1,2 +1,11 @@
-= image_tag @post.image
-= @post.caption
+.posts-wrapper.row
+  .post
+    .post-head
+      .name
+        Allan James Lapid
+    .image.center-block
+      = image_tag @post.image
+    %p.caption
+      = @post.caption
+    .text-center
+      = link_to "Home", posts_path
