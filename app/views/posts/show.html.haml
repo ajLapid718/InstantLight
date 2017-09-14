@@ -9,6 +9,6 @@
       = @post.caption
     .text-center.edit-link
       = link_to "Home", posts_path
-      |
       - if current_user.id == @post.user_id
+        |
         = link_to "Edit", edit_post_path(@post)
