@@ -14,6 +14,7 @@ gem 'bootstrap-sass'
 gem 'jquery-rails'
 gem 'devise'
 gem 'erb2haml'
+gem 'bcrypt', git: 'https://github.com/codahale/bcrypt-ruby.git', :require => 'bcrypt'
 #Gem Additions Above
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
