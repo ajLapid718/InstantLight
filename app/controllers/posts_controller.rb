@@ -43,6 +43,7 @@ class PostsController < ApplicationController
       redirect_to posts_path
     else
       flash.now[:alert] = "Post was not deleted; something went wrong."
+    end
   end
 
   private
