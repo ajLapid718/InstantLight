@@ -7,7 +7,8 @@
       = image_tag @post.image
     %p.caption
       = @post.caption
-    .text-center
+    .text-center.edit-link
       = link_to "Home", posts_path
       |
-      = link_to "Edit", edit_post_path(@post)
+      - if current_user.id == @post.user_id
+        = link_to "Edit", edit_post_path(@post)
