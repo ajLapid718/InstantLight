@@ -7,7 +7,7 @@ class CommentsController < ApplicationController
 
     if @comment.save
       flash[:success] = "You commented the hell out of that post!"
-      redirect_to @post
+      redirect_back(fallback_location: root_path)
     else
       flash[:alert] = "Check the comment form, something went horribly wrong!"
       render root_path # not necessarily render :new because we don't want a comment form out there on its own view without it being attached to the post
@@ -15,7 +15,7 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    @comment = @post.comments.find(params[:id])
+    @comment = @post.comments.find(params[:id]) # Due to the nature of comments being built or found through their association with the post model, this is the way to accurately reference the comment at hand
 
     @comment.destroy
     flash[:success] = "Comment successfully deleted!"
