@@ -1,1 +1,29 @@
--# partial for post so we can render it in the show and index
+.posts-wrapper
+  .post
+    .post-head
+      .thumb-img
+      .user-name
+        = post.user.username
+    .image.center-block
+      = link_to (image_tag post.image, class: 'img-responsive'), post_path(post)
+    .post-bottom
+      .caption
+        .user-name
+          = post.user.username
+        = post.caption
+      - if post.comments
+        - post.comments.each do |comment|
+          .comment
+            .user-name
+              = comment.user.username
+            .comment-content
+              = comment.content
+            - if comment.user == current_user
+              = link_to post_comment_path(post, comment), method: :delete, data: { confirm: "Are you sure?" } do
+                %span(class="glyphicon glyphicon-remove delete-comment-icon")
+    .comment-like-form.row
+      .like-button.col-sm-1
+        %span(class="glyphicon glyphicon-heart-empty")
+      .comment-form.col-sm-11
+        = form_for ([post, post.comments.new]) do |f| # simple_form_for is the gem, form_for is a Rails built-in helper method
+          = f.text_field :content, placeholder: "Add a comment..."

@@ -1,22 +1,2 @@
-.posts-wrapper.row
-  - @posts.each do |post| # Because the index controller doesn't have @post for a single post (rightfully so), we need the |post| to be able to reference individual posts on the index view
-    .post
-      .post-head
-        .name
-          = post.user.username
-      .image.center-block
-        = link_to (image_tag post.image, class: 'img-responsive'), post
-      %p.caption
-        = post.caption
-      - if post.comments
-        - post.comments.each do |comment|
-          .comment
-            .user-name
-              = comment.user.username
-            .comment-content
-              = comment.content
-            - if comment.user == current_user
-              = link_to post_comment_path(post, comment), method: :delete, data: { confirm: "Are you sure?" } # Due to nested routes, you need the (post, comment) when referring to the comment
-      .comment-form
-        = form_for ([post, post.comments.build]) do |f| # simple_form_for is the gem, form_for is a Rails built-in helper method
-          = f.text_field :content, placeholder: "Add a comment..."
+- @posts.each do |post| # Because the index controller doesn't have @post for a single post (rightfully so), we need the |post| to be able to reference individual posts on the index view
+  = render 'post', post: post # First half: " render 'post' " = renders the post partial / # Second half: "post: post" = Passing post from the index block to the partial as well so the partial knows how to interpret it
