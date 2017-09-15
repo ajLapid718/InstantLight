@@ -10,8 +10,13 @@ class CommentsController < ApplicationController
       redirect_to @post
     else
       flash[:alert] = "Check the comment form, something went horribly wrong!"
-      render root_path
+      render root_path # not necessarily render :new because we don't want a comment form out there on its own view without it being attached to the post
     end
+  end
+
+  def destroy
+    @comment.destroy
+    redirect_to @post
   end
 
   private
