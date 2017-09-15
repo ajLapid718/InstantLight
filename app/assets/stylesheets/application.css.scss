@@ -27,15 +27,7 @@ body {
   font-family: proxima-nova, 'Helvetica Neue', Arial, Helvetica, sans-serif;
 }
 
-.alert {
-  margin-bottom: 0px;
-}
-
 /* ## NAVBAR CUSTOMISATIONS ## */
-
-.navbar {
-  margin-bottom: 0px;
-}
 
 .navbar-brand {
   a {
@@ -45,13 +37,14 @@ body {
 
 .navbar-default {
   background-color: #fff;
+  height: 54px;
   .navbar-nav li a {
     color: #125688;
   }
 }
 
 .navbar-container {
-  max-width: 640px;
+  max-width: 70%;
   margin: 0 auto;
 }
 
@@ -152,6 +145,15 @@ body {
 }
 
 /* ## Wrapper and styling for the new, edit & devise views ## */
+
+.form-wrapper {
+  width: 60%;
+  margin: 20px auto;
+  background-color: #fff;
+  padding: 40px;
+  border: 1px solid #eeefef;
+  border-radius: 3px;
+}
 
 .edit-links {
   margin-top: 20px;
