@@ -8,6 +8,5 @@
         = link_to (image_tag post.image, class: 'img-responsive'), post
       %p.caption
         = post.caption
-        = form_for ([post, post.comments.build]) do |f|
-          = f.text_field :content
-          = f.submit
+        = form_for ([post, post.comments.build]) do |f| # simple_form_for is the gem, form_for is a Rails built-in helper method
+          = f.text_field :content, placeholder: "Add a comment..."
