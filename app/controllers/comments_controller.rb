@@ -8,6 +8,10 @@ class CommentsController < ApplicationController
     if @comment.save
       flash[:success] = "You commented the hell out of that post!"
       redirect_back(fallback_location: root_path)
+      respond_to do |format|
+       format.html { redirect_to root_path }
+       format.js
+      end
     else
       flash[:alert] = "Check the comment form, something went horribly wrong!"
       render root_path # not necessarily render :new because we don't want a comment form out there on its own view without it being attached to the post
