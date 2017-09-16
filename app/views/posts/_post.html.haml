@@ -20,4 +20,4 @@
         %span(class="glyphicon glyphicon-heart-empty")
       .comment-form.col-sm-11
         = form_for ([post, post.comments.build]), remote: true do |f| # simple_form_for is the gem, form_for is a Rails built-in helper method
-          = f.text_field :content, placeholder: "Add a comment...", class: "comment_content", id: "comment_content_#{post.id}"
+          = f.text_field :content, placeholder: "Add a comment...", class: "comment_content", id: "comment_content_#{post.id}" # MAKE SURE REMOTE: TRUE IS THERE!
