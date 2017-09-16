@@ -6,8 +6,6 @@ class CommentsController < ApplicationController
     @comment.user_id = current_user.id # set the foreign key (user_id) of the comment to the current user's id so that the comment belongs to a user
 
     if @comment.save
-      flash[:success] = "You commented the hell out of that post!"
-      redirect_back(fallback_location: root_path)
       respond_to do |format|
        format.html { redirect_to root_path }
        format.js
