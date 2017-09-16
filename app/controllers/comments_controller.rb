@@ -18,10 +18,11 @@ class CommentsController < ApplicationController
 
   def destroy
     @comment = @post.comments.find(params[:id]) # Due to the nature of comments being built or found through their association with the post model, this is the way to accurately reference the comment at hand
-
     @comment.destroy
-    flash[:success] = "Comment successfully deleted!"
-    redirect_to root_path
+    respond_to do |format|
+     format.html { redirect_to root_path }
+     format.js
+    end
   end
 
   private
