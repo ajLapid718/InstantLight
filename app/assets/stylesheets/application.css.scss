@@ -210,10 +210,13 @@ span.error {
 /* */
 
 .login-bg {
- padding-top: 4em;
+ padding-left: 1em;
+ padding-top: 6.3em;
+ padding-bottom: 15em;
+ padding-right: 1em;
  height: 100%;
  background-image: image-url('loginbg.jpg');
- -moz-background-size: cover;
+ -moz-background-ssize: cover;
  -webkit-background-size: cover;
  -o-background-size: cover;
  background-size: cover;
