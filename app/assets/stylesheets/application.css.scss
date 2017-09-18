@@ -196,3 +196,13 @@ body {
 .alert {
   margin-bottom: 0px;
 }
+
+p.error_notification {
+    color: red;
+    background-color: pink;
+    font-weight: 700;
+}
+
+span.error {
+    color: red;
+}
