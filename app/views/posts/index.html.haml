@@ -1,2 +1,4 @@
 - @posts.each do |post| # Because the index controller doesn't have @post for a single post (rightfully so), we need the |post| to be able to reference individual posts on the index view
   = render 'post', post: post # First half: " render 'post' " = renders the post partial / # Second half: "post: post" = Passing post from the index block to the partial as well so the partial knows how to interpret it
+
+= paginate @posts
