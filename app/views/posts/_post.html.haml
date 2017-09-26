@@ -17,6 +17,9 @@
         .comments{id: "comments_#{post.id}"}
           - if post.comments.any?
             = render post.comments.first(4), post: post
+            - unless post.comments.count <= 4
+              .paginator{id: "#comments-paginator-#{post.id}"}
+                = link_to "view all #{post.comments.count} comments"
     .comment-like-form.row
       .like-button.col-sm-1
         %span(class="glyphicon glyphicon-heart-empty")
