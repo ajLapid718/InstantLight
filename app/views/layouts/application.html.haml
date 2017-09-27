@@ -1,17 +1,13 @@
 !!! 5
 %html
-%head
-  %title InstantLight
-  = csrf_meta_tags
-  = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
-  = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
-
+  %head
+    %title InstantLight
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    = csrf_meta_tags
 %body
-
-= render 'layouts/navbar'
-
-.container
+  = render 'layouts/navbar'
   - flash.each do |name, msg|
+    .container
     = content_tag :div, msg, class: [:alert, alert_for(name)]
-
   = yield
