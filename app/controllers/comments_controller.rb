@@ -5,7 +5,7 @@ class CommentsController < ApplicationController
     @comments = @post.comments.order("created_at ASC")
 
     respond_to do |format|
-      format.html { render layout: !request.xhr? } # Writing this comment to indicate when I moved on from the bug regarding the comment pagination so that I can see the state of my project via commit history later.
+      format.html { render layout: !request.xhr? }
     end
   end
 
