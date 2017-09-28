@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   end
 
   get ':username', to: 'profiles#show', as: :profile
+  # get ':username', to: 'profiles#edit', as: :profile
 
   root "posts#index"
 end
