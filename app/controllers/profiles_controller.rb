@@ -3,4 +3,7 @@ class ProfilesController < ApplicationController
     @user = User.find_by(username: params[:username])
     @posts = User.find_by(username: params[:username]).posts.order('created_at DESC')
   end
+
+  def edit
+  end
 end
