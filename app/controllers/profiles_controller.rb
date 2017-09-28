@@ -36,5 +36,6 @@ class ProfilesController < ApplicationController
     unless current == @user
       flash[:alert] = "That profile doesn't belong to you!"
       redirect_to root_path
+    end
   end
 end

@@ -12,7 +12,7 @@
       .caption
         .caption-content
           .user-name
-            = post.user.username
+            = link_to post.user.username, profile_path(post.user.username)
           = post.caption
         .comments{id: "comments_#{post.id}"}
           - if post.comments.any?
