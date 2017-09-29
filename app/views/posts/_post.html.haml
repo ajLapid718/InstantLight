@@ -9,6 +9,7 @@
     .image.center-block
       = link_to (image_tag post.image, class: 'img-responsive'), post_path(post)
     .post-bottom
+      = render 'posts/likes', post: post
       .caption
         .caption-content
           .user-name
