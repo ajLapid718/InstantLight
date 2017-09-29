@@ -11,7 +11,7 @@ module PostsHelper
   end
 
   def liked_post(post)
-    return 'glyphicon-heart' if current_user.voted_for?(post)
+    return 'glyphicon-heart' if current_user.voted_for?(post) # voted_for is from acts_as_voter, which we'll add in a bit
     'glyphicon-heart-empty' # else
   end
 
