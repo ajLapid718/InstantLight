@@ -279,9 +279,9 @@ span.error {
   }
 }
 
-#user_avatar {
-  margin: 20px auto;
-}
+// #user_avatar {
+//   margin: 20px auto;
+// }
 
 .profile-header {
   padding: 20px 0;
@@ -309,4 +309,18 @@ span.error {
 
 .profile-bio {
   margin-top: 20px;
+}
+
+#user_bio {
+  border: 1px solid gray;
+}
+
+#user_avatar {
+  padding: 1em;
+  margin: 0px auto;
+}
+
+.likes {
+  margin-top: 20px;
+  margin-bottom: 7px;
 }
