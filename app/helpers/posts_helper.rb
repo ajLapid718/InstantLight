@@ -1,6 +1,6 @@
 module PostsHelper
   def likers_of(post)
-    votes = post.votes_for.up.by_type(User)
+    votes = post.votes_for.up #.by_type(User)
     user_names = []
     unless votes.blank?
       votes.voters.each do |voter|
