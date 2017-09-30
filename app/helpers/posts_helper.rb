@@ -18,7 +18,7 @@ module PostsHelper
 
   private
 
-  def list_likers(post)
+  def list_likers(votes)
     user_names = []
     unless votes.blank?
       votes.voters.each do |voter|
