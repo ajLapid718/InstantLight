@@ -1,4 +1,13 @@
 module PostsHelper
+  def display_likes(post)
+    votes = post.votes_for.up
+    if votes.size <= 8
+      return list_likers(votes)
+    else
+      count_likers(votes)
+    end
+  end
+
   def liked_post(post)
     if current_user.voted_for?(post)
       return 'glyphicon-heart'
