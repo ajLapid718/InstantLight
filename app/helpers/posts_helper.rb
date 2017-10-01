@@ -9,7 +9,7 @@ module PostsHelper
   end
 
   def liked_post(post)
-    if current_user.voted_for?(post)
+    if post.liked_by(current_user)
       return 'glyphicon-heart'
     else
       return 'glyphicon-heart-empty'
