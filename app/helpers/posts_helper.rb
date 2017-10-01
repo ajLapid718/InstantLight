@@ -8,14 +8,13 @@ module PostsHelper
     end
   end
 
-  # def liked_post(post)
-  #   if post.liked_by(current_user)
-  #     return 'glyphicon-heart'
-  #   end
-  #   if !post.liked_by(current_user)
-  #     return 'glyphicon-heart-empty'
-  #   end
-  # end
+  def liked_post(post)
+    if current_user.liked?(post)
+      return 'glyphicon-heart'
+    else
+      return 'glyphicon-heart-empty'
+    end
+  end
 
   private
 
