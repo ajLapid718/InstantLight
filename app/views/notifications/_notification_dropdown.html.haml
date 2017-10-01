@@ -1,7 +1,7 @@
 .dropdown.notification-dropdown
   %button.btn.btn-default.dropdown-toggle{ type: 'button', id: 'dropdownMenu1', data: { toggle: 'dropdown' }, 'aria-haspopup': true, 'aria-expanded': true }
-    = current_user.notifications.count
+    = current_user.notifications.count # where read is false? gotta account for read and unread counts
     %span.glyphicon.glyphicon-flag
   %ul.dropdown-menu{ 'aria-labelledby': 'dropdownMenu1' }
     %li.dropdown-header.text-center Notifications
-    = render current_user.notifications.order('created_at DESC')
+    = render current_user.notifications.order('created_at DESC') #.where(read: false) if we want to only show our unread notifications
