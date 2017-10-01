@@ -4,6 +4,4 @@
     %span.glyphicon.glyphicon-flag
   %ul.dropdown-menu{ 'aria-labelledby': 'dropdownMenu1' }
     %li.dropdown-header.text-center Notifications
-    %li
-      %a{ href: '#' } Notification 1
-      %a{ href: '#' } Notification 2
+    = render current_user.notifications.order('created_at DESC')
