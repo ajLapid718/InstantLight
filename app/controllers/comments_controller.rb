@@ -14,6 +14,7 @@ class CommentsController < ApplicationController
     @comment.user_id = current_user.id # set the foreign key (user_id) of the comment to the current user's id so that the comment belongs to a user
 
     if @comment.save
+      create_notification @post, @comment
       respond_to do |format|
        format.html { redirect_to root_path }
        format.js
@@ -43,5 +44,10 @@ class CommentsController < ApplicationController
 
   def comment_params
     params.require(:comment).permit(:content)
+  end
+
+  def create_notification(post)
+    return if post.user.id == current_user.id
+    Notification.create(user_id: post.user.id, notified_by_id: current_user.id, post_id: post.id, comment_id: comment.id, notice_type: 'comment')
   end
 end
