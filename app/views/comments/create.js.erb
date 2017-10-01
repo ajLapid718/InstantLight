@@ -8,4 +8,7 @@ else if ((Append.comment && Append.open) === false && Append.link === true) {
 	$('#comments_' + Append.post_id).append("<div class='paginator' id='#comments-paginator-" + Append.post_id + "'><a class='more-comments' id='more_comments_" + Append.post_id + "' data-post-id='" + Append.post_id + "' data-type='html' data-remote='true' data-value='" + Append.comment_count + "' href='/posts/" + Append.post_id + "/comments'>view all " + Append.comment_count + " comments</a></div>");
 	ClickableCommentsLink();
 }
-else if ((Append.comment && Append.open && Append.link) === false) { $('#more_comments_<%= @post.id %>').html("view all <%= @post.comments.count %> comments"); }
+else if ((Append.comment && Append.open && Append.link) === false) { $('#more_comments_<%= @post.id %>').html("View all <%= @post.comments.count %> comments"); }
+
+// When a new comment is made, the view all comments count needs a refresh for it to work
+// When comment on a post that is on another page (aka page 2 onward aka after load more), the destroy still holds up but the create comment with an AJAX call doesn't appear to render
