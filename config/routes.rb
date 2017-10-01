@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'notifications/link_through'
+
   get 'profiles/show'
 
   devise_for :users, :controllers => { registrations: 'registrations' }
