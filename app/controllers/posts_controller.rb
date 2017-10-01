@@ -49,9 +49,18 @@ class PostsController < ApplicationController
   end
 
   def like
-    if @post.liked_by current_user
+    if @post.liked_by(current_user)
       respond_to do |format|
         format.html { redirect_back(fallback_location: root_path) } # { redirect_to :back} # Might have to do the fallback redirect
+        format.js
+      end
+    end
+  end
+
+  def unlike
+    if @post.unliked_by(current_user)
+      respond_to do |format|
+        format.html { redirect_back(fallback_location: root_path) }
         format.js
       end
     end
