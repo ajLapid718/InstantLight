@@ -11,19 +11,11 @@
       %ul.nav.navbar-nav.navbar-right
         - if user_signed_in?
           %li
-            .dropdown.notification-dropdown
-              %button.btn.btn-default.dropdown-toggle{ type: 'button', id: 'dropdownMenu1', data: { toggle: 'dropdown' }, 'aria-haspopup': true, 'aria-expanded': true }
-                5
-                %span.glyphicon.glyphicon-flag
-              %ul.dropdown-menu{ 'aria-labelledby': 'dropdownMenu1' }
-                %li.dropdown-header.text-center Notifications
-                %li
-                  %a{ href: '#' } Notification 1
-                  %a{ href: '#' } Notification 2
-                %li
-                  = link_to "New Post", new_post_path
-                %li
-                  = link_to "Logout", destroy_user_session_path, method: :delete
+            = render 'notifications/notification_dropdown'
+            %li
+              = link_to "New Post", new_post_path
+            %li
+              = link_to "Logout", destroy_user_session_path, method: :delete
         - else
           %li
             = link_to "Login", new_user_session_path
