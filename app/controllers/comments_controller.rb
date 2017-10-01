@@ -12,13 +12,12 @@ class CommentsController < ApplicationController
   def create
     @comment = @post.comments.build(comment_params) # @post.comments.build(comment_params) makes use of the has_many relationship that the post model has and then builds a comment there, with the post_id assigned to the comment upon creation
     @comment.user_id = current_user.id # set the foreign key (user_id) of the comment to the current user's id so that the comment belongs to a user
-
     if @comment.save
-      create_notification(@post, @comment)
       respond_to do |format|
        format.html { redirect_to root_path }
        format.js
       end
+      create_notification(@post, @comment)
     else
       flash[:alert] = "Check the comment form, something went horribly wrong!"
       render root_path # not necessarily render :new because we don't want a comment form out there on its own view without it being attached to the post
