@@ -4,4 +4,4 @@
     %span.glyphicon.glyphicon-flag
   %ul.dropdown-menu{ 'aria-labelledby': 'dropdownMenu1' }
     %li.dropdown-header.text-center Notifications
-    = render current_user.notifications.order('created_at DESC') #.where(read: false) if we want to only show our unread notifications
+    = render current_user.notifications.order('created_at DESC').last(5) #.where(read: false) if we want to only show our unread notifications
