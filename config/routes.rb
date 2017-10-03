@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
-  get 'relationships/follow_user'
-
-  get 'relationships/unfollow_user'
+  post ':username/follow_user', to: 'relationships#follow_user', as: :follow_user
+  post ':username/unfollow_user', to: 'relationships#unfollow_user', as: :unfollow_user
 
   get 'notifications/:id/link_through', to: 'notifications#link_through', as: :link_through
   get 'notifications', to: 'notifications#index'
