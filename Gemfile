@@ -18,6 +18,7 @@ gem 'bcrypt', git: 'https://github.com/codahale/bcrypt-ruby.git', :require => 'b
 gem 'kaminari'
 gem 'jquery-turbolinks'
 gem 'acts_as_votable'
+gem 'masonry-rails'
 #Gem Additions Above
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
