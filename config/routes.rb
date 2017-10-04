@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'browse', to: 'posts#browse', as: :browse_posts
+
   post ':username/follow_user', to: 'relationships#follow_user', as: :follow_user
   post ':username/unfollow_user', to: 'relationships#unfollow_user', as: :unfollow_user
 
