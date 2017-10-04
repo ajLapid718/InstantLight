@@ -6,6 +6,6 @@ class Follow < ApplicationRecord
 
   belongs_to :following,
     primary_key: :id,
-    foreign_key: :following_id
+    foreign_key: :following_id,
     class_name: 'User'
 end
