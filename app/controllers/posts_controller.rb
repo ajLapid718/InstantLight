@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :find_post, only: [:show, :edit, :update, :destroy, :like, :unlike]
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, except: [:browse, :show]
   before_action :owned_post, only: [:edit, :update, :destroy]
 
   def index
@@ -9,7 +9,7 @@ class PostsController < ApplicationController
 
   def browse
     @posts = Post.all.order('created_at DESC').page(params[:page])
-  end 
+  end
 
   def show
   end
