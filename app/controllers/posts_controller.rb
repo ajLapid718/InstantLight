@@ -7,6 +7,10 @@ class PostsController < ApplicationController
     @posts = Post.of_followed_users(current_user.following).order('created_at DESC').page(params[:page])
   end
 
+  def browse
+    @posts = Post.all.order('created_at DESC').page(params[:page])
+  end 
+
   def show
   end
 
